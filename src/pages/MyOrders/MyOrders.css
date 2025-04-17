@@ -1,0 +1,240 @@
+.my-orders {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fdfdfd;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+.my-orders h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #d84315;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px #ffd6cc;
+    text-align: center;
+    z-index: 2;
+}
+
+/* Container for All Orders */
+.my-orders .container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 10px;
+}
+
+/* Each Order Card */
+.my-orders-order {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 24px;
+    border: 1.5px solid #ff7043;
+    border-radius: 16px;
+    background: linear-gradient(to right, #fff, #fff5f3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+    flex-wrap: wrap;
+}
+
+.my-orders-order:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 14px rgba(255, 87, 34, 0.15);
+}
+
+/* Order Icon */
+.my-orders-order img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+/* Left Content (Details) */
+.order-details {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.order-details h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+.order-details p {
+    font-size: 15px;
+    color: #444;
+    margin: 3px 0;
+}
+
+.order-item-list {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Amount & Item Count */
+.order-amount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2e7d32;
+    margin-top: 6px;
+}
+
+.order-items {
+    font-size: 15px;
+    color: #757575;
+}
+
+/* Address Styling */
+.order-address {
+    font-size: 15px;
+    font-weight: 500;
+    background: #fff8f5;
+    padding: 10px;
+    border-left: 4px solid #ff7043;
+    border-radius: 6px;
+    color: #444;
+    margin-top: 6px;
+}
+
+/* Date & Time */
+.order-date-time {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.order-date,
+.order-time {
+    background: #ffe0db;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #d84315;
+}
+
+/* Right Content (Actions & Status) */
+.order-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 160px;
+}
+
+/* Status Text */
+.order-status {
+    font-weight: bold;
+    color: tomato;
+    font-size: 15px;
+}
+
+/* Buttons */
+.track-order-btn,
+.pay-now-btn {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.track-order-btn {
+    background-color: #ffebea;
+    color: #444;
+}
+
+.track-order-btn:hover {
+    background-color: #ff5722;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pay-now-btn {
+    background-color: #ff7043;
+    color: white;
+    font-weight: bold;
+}
+
+.pay-now-btn:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+/* Waiting Spinner & Message */
+.waiting-message {
+    text-align: center;
+    font-size: 18px;
+    color: #ff9800;
+    font-weight: bold;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ff9800;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Fixes */
+@media (max-width: 900px) {
+    .my-orders-order {
+        flex-direction: column;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .order-actions {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+
+    .order-status {
+        align-self: flex-start;
+    }
+
+    .order-date-time {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .track-order-btn,
+    .pay-now-btn {
+        font-size: 14px;
+        width: auto;
+    }
+}

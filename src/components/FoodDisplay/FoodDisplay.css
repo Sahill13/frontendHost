@@ -1,0 +1,53 @@
+.food-display {
+    margin-top: 30px;
+    padding: 40px 10vw;
+    background: #1A1A2E; /* Dark Theme for Consistency */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Section Title */
+.food-display h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 47, 47, 0.7);
+}
+
+/* Food Grid Layout */
+.food-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 20px;
+}
+
+/* Food Item Container */
+.food-display-list div {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect for Food Items */
+.food-display-list div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 47, 47, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .food-display {
+        padding: 30px 5vw;
+    }
+
+    .food-display-list {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .food-display h2 {
+        font-size: max(3vw, 20px);
+    }
+}

@@ -1,0 +1,47 @@
+/* Ticker.css (Scrolling News Bar) */
+.ticker-container {
+    width: 100vw; /* ✅ Ensure full viewport width */
+    background: #D72638; /* Red Theme */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    position: fixed;
+    top: 90px;
+    left: 0;
+    z-index: 990;
+}
+
+.ticker-wrapper {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 15s linear infinite;
+}
+
+.ticker-content {
+    display: flex;
+    gap: 50px; /* Space between repeating messages */
+}
+
+@keyframes ticker-scroll {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+}
+/* ✅ Responsive adjustments for small screens */
+@media (max-width: 480px) {
+  .ticker-container {
+      font-size: 14px;
+      padding: 8px 0;
+      top: 70px; /* Optional: Shift slightly up if needed */
+  }
+
+  .ticker-content {
+      gap: 30px; /* Reduce spacing between items on small screens */
+  }
+}

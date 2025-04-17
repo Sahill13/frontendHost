@@ -1,0 +1,180 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 10vw;
+    background: radial-gradient(circle at top left, #2c003e, #1a001f);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .explore-menu::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #ff0066aa, #7f00ffaa);
+    opacity: 0.08;
+    z-index: -1;
+    backdrop-filter: blur(14px);
+  }
+  
+  .explore-menu h1 {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow: 0 0 25px #ff0055, 0 0 10px #fff;
+    margin-bottom: 20px;
+  }
+  
+  .explore-menu-text {
+    max-width: 75%;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #e0e0e0;
+    line-height: 1.8;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  
+  /* Cafeteria Dropdown */
+  .cafeteria-selection {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(255, 0, 102, 0.3);
+    transition: 0.3s ease;
+  }
+  
+  .cafeteria-selection label {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .cafeteria-selection select {
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    box-shadow: inset 0 0 8px #ff005580;
+    transition: all 0.3s ease;
+  }
+  
+  .cafeteria-selection select:hover,
+  .cafeteria-selection select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 20px #ff339988;
+  }
+  
+  /* Menu Items List */
+  .explore-menu-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 40px;
+    padding: 25px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  
+  .explore-menu-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .explore-menu-list-item {
+    min-width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .explore-menu-list-item:hover {
+    transform: scale(1.1);
+  }
+  
+  .explore-menu-list-item img {
+    width: 8vw;
+    min-width: 110px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(255, 0, 102, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  /* Active state applied directly on img */
+  .explore-menu-list-item img.active {
+    border: 5px solid #ff007f;
+    box-shadow: 0 0 30px #ff007f, 0 0 10px #fff;
+    transform: scale(1.2);
+  }
+  
+  .explore-menu-list-item p {
+    margin-top: 12px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  /* Decorative Line */
+  .explore-menu hr {
+    width: 85%;
+    height: 4px;
+    margin-top: 35px;
+    background: linear-gradient(to right, #ff007f, #fff, #ff007f);
+    border: none;
+    box-shadow: 0 0 15px #ff007f88;
+    border-radius: 20px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1050px) {
+    .explore-menu-text {
+      font-size: 1.1rem;
+      max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 750px) {
+    .explore-menu {
+      padding: 40px 5vw;
+    }
+  
+    .explore-menu h1 {
+      font-size: 2.5rem;
+    }
+  
+    .explore-menu-list-item img {
+      width: 20vw;
+      min-width: 90px;
+    }
+  
+    .explore-menu-list-item p {
+      font-size: 1rem;
+    }
+  
+    .cafeteria-selection select {
+      width: 200px;
+    }
+  
+    .cafeteria-selection label {
+      font-size: 1.1rem;
+    }
+  }
+  

@@ -1,0 +1,111 @@
+.footer {
+    color: #ffffff;
+    background-color: #1A1A2E; /* Dark theme like navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 10vw;
+    margin-top: 100px;
+    width: 100%;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+}
+
+.footer-content-left, 
+.footer-content-right, 
+.footer-content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.footer-content-left p {
+    font-size: 16px;
+    color: #d9d9d9;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+.footer-content-right h2, 
+.footer-content-center h2 {
+    color: #D72638; /* Red Accent */
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #D72638;
+    padding-bottom: 5px;
+}
+
+.footer-content-left li, 
+.footer-content-right li, 
+.footer-content-center li {
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #d9d9d9;
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+.footer-content-left li:hover, 
+.footer-content-right li:hover, 
+.footer-content-center li:hover {
+    color: #D72638; /* Red Hover */
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-social-icons img {
+    width: 45px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-social-icons img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+}
+
+.footer hr {
+    width: 100%;
+    height: 2px;
+    background-color: #D72638;
+    border: none;
+    margin: 20px 0px;
+}
+
+.logoo {
+    width: 220px;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 15px;
+    color: #d9d9d9;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-content-left, 
+    .footer-content-right, 
+    .footer-content-center {
+        align-items: center;
+    }
+}

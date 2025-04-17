@@ -1,0 +1,120 @@
+/* 📌 Header Section */
+.header {
+    height: 34vw;
+    margin: 70px auto;
+    margin-top: 100px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    transition: background-image 1s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Subtle Zoom Effect for Dynamic Feel */
+.header:hover {
+    transform: scale(1.02);
+}
+
+/* 📌 Overlay (Soft Black to Improve Visibility) */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Light black overlay for better text contrast */
+    border-radius: 15px;
+}
+
+/* 📌 Text & Content Styling */
+.header-contents {
+    position: absolute;
+    bottom: 12%;
+    left: 6vw;
+    max-width: 50%;
+    color: white;
+    z-index: 2;
+    text-align: left;
+    padding: 20px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* ✅ Normal Color for "Order Your Favourite Food Here" */
+.header-contents h2 {
+    font-weight: 700;
+    font-size: max(4vw, 26px);
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    color: #ffffff; /* White color with slight shadow */
+}
+
+/* 📌 Stylish Quote with Glow Effect */
+.header-contents p {
+    font-size: 1.3vw;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ✨ Button with 3D Effect */
+.header-contents button {
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 1vw 2.5vw;
+    font-size: max(1vw, 14px);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: #FF4500; /* Normal orange color */
+    box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+}
+
+.header-contents button:hover {
+    background: #FF6347; /* Slightly darker on hover */
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(255, 69, 0, 0.8);
+}
+
+/* 📌 Fade & Slide In Animation */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 📌 Responsive Design */
+@media (max-width: 1050px) {
+    .header-contents {
+        max-width: 60%;
+    }
+    .header-contents h2 {
+        font-size: max(3.5vw, 24px);
+    }
+}
+
+@media (max-width: 750px) {
+    .header {
+        height: 50vw;
+    }
+    .header-contents {
+        max-width: 80%;
+    }
+    .header-contents p {
+        font-size: 1rem;
+        display: none; /* Hide quotes for smaller screens */
+    }
+    .header-contents button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}

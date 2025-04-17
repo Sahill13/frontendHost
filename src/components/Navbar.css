@@ -1,0 +1,418 @@
+/* 📌 Navbar Container */
+.navbar {
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1A1A2E; /* Dark Background */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 📌 Logo Styling */
+.navbar .logo {
+    width: 180px;
+}
+
+/* 📌 Navbar Menu */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    font-size: 18px;
+}
+
+/* ✅ Ensure both <a> and <Link> elements are styled correctly */
+.navbar-menu a, 
+.navbar-menu Link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* ✅ Apply active styles correctly */
+.navbar-menu a.active,
+.navbar-menu .active {
+    color: #D72638; /* Red Accent */
+    font-weight: bold;
+}
+
+/* ✅ Underline effect */
+.navbar-menu a.active::after,
+.navbar-menu .active::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 50%;
+    height: 2px;
+    background: #D72638;
+    transform: translateX(-50%);
+}
+
+/* ✅ Fix for anchor links (menu & mobile-app) */
+.navbar-menu a[href^="/#"]:hover {
+    color: #D72638;
+    transform: scale(1.05);
+}
+
+/* 📌 Navbar Right Section */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+/* 📌 Login / Sign-In Button */
+.navbar button {
+    background: linear-gradient(135deg, #D72638, #FF2E2E);
+    font-size: 16px;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 47, 47, 0.3);
+}
+
+.navbar button:hover {
+    background: linear-gradient(135deg, #FF2E2E, #D72638);
+    transform: scale(1.05);
+}
+
+/* 📌 Cart Icon Notification */
+.navbar-search-icon {
+    position: relative;
+}
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: #D72638;
+    border-radius: 50%;
+    top: -5px;
+    right: -5px;
+}
+
+/* 📌 Search Container */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container img {
+    cursor: pointer;
+    width: 26px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* ✅ Hover effect for search icon */
+.search-container img:hover {
+    transform: scale(1.1);
+}
+
+/* 📌 Search Dropdown */
+.search-dropdown {
+    position: absolute;
+    top: 45px; /* ✅ Increased gap for better visibility */
+    left: -90px; /* ✅ Adjusted for better alignment */
+    background: white;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1100;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ✅ Add smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 📌 Search Input */
+.search-dropdown input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+/* ✅ Focus effect */
+.search-dropdown input:focus {
+    border-color: #D72638;
+}
+
+/* 📌 Search Results */
+.search-results {
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* 📌 Search Result Items */
+.search-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 5px;
+}
+
+/* ✅ Hover effect for search items */
+.search-item:hover {
+    background: #f8f8f8;
+}
+
+/* 📌 Search Item Image */
+.search-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 12px;
+}
+
+/* 📌 Search Item Text */
+.search-item p {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ✅ Scrollbar Styling */
+.search-results::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: #D72638;
+    border-radius: 3px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+    background: #b71c24;
+}
+
+/* 📌 Profile Dropdown */
+.navbar-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-profile img {
+    width: 35px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.navbar-profile:hover img {
+    transform: scale(1.1);
+}
+
+.nav-profile-dropdown {
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1100 !important;
+    background: #2A2A3A;
+    padding: 12px 25px;
+    border-radius: 5px;
+    list-style: none;
+    min-width: 160px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-profile-dropdown li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.nav-profile-dropdown li:hover {
+    background: #D72638;
+    border-radius: 5px;
+}
+
+.nav-profile-dropdown img {
+    width: 18px;
+}
+
+/* 📌 SuperCoin Container */
+.supercoin-container {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #FFD700, #FFAA00); /* Gold gradient */
+    color: black;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin-left: auto; /* ✅ Push to the extreme right */
+}
+
+/* 📌 SuperCoin Hover Effect */
+.supercoin-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 📌 SuperCoin Icon */
+.supercoin-container img {
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
+}
+
+/* 📌 SuperCoin Text */
+.supercoin-container span {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.notification-banner {
+    width: 100%;
+    background: #ff9800; /* Orange for warnings */
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.5s ease-in-out;
+}
+
+/* ✅ Different colors based on status */
+.notification-banner.success {
+    background: #4CAF50; /* Green for success */
+}
+
+.notification-banner.error {
+    background: #D72638; /* Red for errors */
+}
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 📌 Responsive Styles */
+@media (max-width: 1050px) {
+    .navbar {
+        padding: 15px 30px;
+    }
+    .navbar .logo {
+        width: 150px;
+    }
+    .navbar-menu {
+        gap: 20px;
+        font-size: 17px;
+    }
+    .navbar-right {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .navbar .logo {
+        width: 130px;
+    }
+    .navbar-menu {
+        gap: 15px;
+        font-size: 16px;
+    }
+    .navbar-right img {
+        width: 20px;
+    }
+    .navbar-right button {
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 750px) {
+    .navbar-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 1050px) {
+    .navbar-right {
+        gap: 15px;
+    }
+    .supercoin-container {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+    .supercoin-container img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .supercoin-container {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    .supercoin-container img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 750px) {
+    .supercoin-container {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+    .supercoin-container img {
+        width: 16px;
+        height: 16px;
+    }
+}

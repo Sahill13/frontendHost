@@ -1,0 +1,69 @@
+.floating-cart {
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 600px;
+    background: #D72638;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Slide up/down animation */
+.floating-cart.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.floating-cart.hide {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+}
+
+.floating-cart button {
+    background: white;
+    color: #D72638;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+.floating-cart button:hover {
+    background: #fff5f5;
+    transform: scale(1.05);
+}
+
+.floating-cart button:active {
+    transform: scale(0.95);
+}
+
+/* ✅ Responsive styles for smaller screens */
+@media (max-width: 480px) {
+    .floating-cart {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 16px;
+        font-size: 16px;
+        gap: 10px;
+    }
+
+    .floating-cart button {
+        font-size: 16px;
+        padding: 10px 14px;
+        width: 100%; /* Full width for better usability */
+    }
+}
