@@ -10,7 +10,7 @@ function Cart() {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url, superCoins, token } = useContext(StoreContext);
   const navigate = useNavigate();
   const [redeemAmount, setRedeemAmount] = useState(() => {
-    return Number(localStorage.getItem("redeemAmount")) || 0;
+    return Number(sessionStorage.getItem("redeemAmount")) || 0;
 });
   const cartRef = useRef(null); // 🔹 Create a reference for the cart container
   useEffect(() => {
@@ -21,36 +21,20 @@ function Cart() {
     }
 }, [cartItems]);
 
-  const handleRedeem = async () => {
-    const maxRedeem = Math.min(superCoins, Math.floor(getTotalCartAmount() * 0.1)); // Max 10% discount
-    if (maxRedeem === 0) {
-      toast.error("❌ Not enough SuperCoins to redeem!");
-      return;
-    }
+const handleRedeem = () => {
+  const maxRedeem = Math.min(superCoins, Math.floor(getTotalCartAmount() * 0.1)); // Max 10% discount
+  if (maxRedeem === 0) {
+    toast.error("❌ Not enough SuperCoins to redeem!");
+    return;
+  }
 
-    try {
-      console.log(`🔄 Redeeming ${maxRedeem} SuperCoins...`);
+  console.log(`✅ SuperCoins Redeemed (frontend only): ₹${maxRedeem}`);
+  setRedeemAmount(maxRedeem);
+  localStorage.setItem("redeemAmount", maxRedeem); // ✅ Save for reload
+  sessionStorage.setItem("redeemAmount", maxRedeem); // ✅ Optional session tracking
+  toast.success(`✅ Applied ₹${maxRedeem} SuperCoin discount!`);
+};
 
-      const response = await axios.post(
-        `${url}/api/user/redeemsupercoins`,
-        { redeemAmount: maxRedeem, userId: localStorage.getItem("userId") },
-        { headers: { token } }
-      );
-
-      if (response.data.success) {
-        console.log(`✅ SuperCoins Redeemed: ${maxRedeem}`);
-        setRedeemAmount(maxRedeem);
-        localStorage.setItem("redeemAmount", maxRedeem); // ✅ Save to local storage
-        sessionStorage.setItem("redeemAmount", maxRedeem); // ✅ Store in sessionStorage too
-        toast.success(`✅ Redeemed ₹${maxRedeem} from SuperCoins!`);
-      } else {
-        toast.error("❌ Failed to redeem SuperCoins!");
-      }
-    } catch (error) {
-      console.error("❌ Error redeeming SuperCoins:", error);
-      toast.error("❌ Error redeeming SuperCoins!");
-    }
-  };
 
   return (
     <div className="cart" ref={cartRef}>

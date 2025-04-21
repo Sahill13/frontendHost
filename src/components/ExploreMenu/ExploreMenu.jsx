@@ -23,7 +23,8 @@ const ExploreMenu = ({ category, setCategory, url, setCafeteriaId }) => {
     };
     fetchCafeterias();
   }, [url]);
-
+  
+  
   const handleCafeteriaChange = async (event) => {
     const cafeteriaId = event.target.value;
     if (!cafeteriaId) return;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import {Routes , Route} from 'react-router-dom'
 import Cart from './pages/Cart/Cart'
@@ -12,10 +12,20 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Profile from './components/Profile/Profile'
 import Ticker from './components/Ticker/Ticker'
+import SplashScreen from './components/SplashScreen/SplashScreen'; // ✅ Import splash screen
 
 const App = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL ; // ✅ Define URL here
   const [showLogin,setShowLogin]=useState(false);
+  const [isLoading, setIsLoading] = useState(true); // ✅ Splash screen state
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (isLoading) return <SplashScreen />; // ✅ Show splash screen before everything
+
 
   return (<>
   {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}

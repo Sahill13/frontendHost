@@ -44,19 +44,29 @@ const StoreContextProvider = (props) => {
 
     // ✅ Load cart from localStorage when app starts
     useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem("cartItems")) || {};
-        setCartItems(savedCart);
-        setShowFloatingCart(Object.keys(savedCart).length > 0);
+        try {
+            const savedCart = JSON.parse(localStorage.getItem("cartItems")) || {};
+            setCartItems(savedCart);
+            setShowFloatingCart(Object.keys(savedCart).length > 0);
+        } catch (e) {
+            console.error("❌ Failed to parse cartItems from localStorage:", e);
+            localStorage.removeItem("cartItems");
+            setCartItems({});
+            setShowFloatingCart(false);
+        }
     }, []);
 
     // ✅ Sync cart with localStorage whenever cartItems changes
     useEffect(() => {
-        if (Object.keys(cartItems).length > 0) {
-            localStorage.setItem("cartItems", JSON.stringify(cartItems));
-            setShowFloatingCart(true);
-        } else {
-            localStorage.removeItem("cartItems");
-            setShowFloatingCart(false);
+        if (cartItems && typeof cartItems === 'object') {
+            const hasItems = Object.keys(cartItems).length > 0;
+            if (hasItems) {
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                setShowFloatingCart(true);
+            } else {
+                localStorage.removeItem("cartItems");
+                setShowFloatingCart(false);
+            }
         }
     }, [cartItems]);
 

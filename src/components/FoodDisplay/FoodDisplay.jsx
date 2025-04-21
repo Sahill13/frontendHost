@@ -22,20 +22,16 @@ const FoodDisplay = ({ category, url }) => {
         
                     // ✅ Log the full URL to check if it's correct
                     const apiUrl = `${url}/api/food/list?cafeteriaId=${storedCafeteriaId}`;
-                    console.log(`🚀 Fetching food from: ${apiUrl}`);
         
                     const response = await axios.get(apiUrl, {
                         headers: { Accept: "application/json" }
                     });
-        
-                    console.log("🔍 Full API Response:", response);
         
                     if (!response.data || typeof response.data !== "object" || !response.data.success || !Array.isArray(response.data.data)) {
                         console.error("❌ Invalid response format:", response);
                         throw new Error("Invalid response format from server!");
                     }
         
-                    console.log("✅ Food fetched:", response.data.data);
                     setFoodList(response.data.data);
                     setError(null);
                 } catch (error) {
