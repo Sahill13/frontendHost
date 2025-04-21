@@ -21,8 +21,6 @@ const StoreContextProvider = (props) => {
 
     const url =import.meta.env.VITE_BACKEND_URL ;
 
-    console.log("🌐 BACKEND URL:", url);
-
     const loadRazorpayScript = () => {
         return new Promise((resolve) => {
             if (window.Razorpay) {
@@ -163,13 +161,9 @@ const StoreContextProvider = (props) => {
     const fetchFoodList = async () => {
         try {
             const cafeteriaId = (localStorage.getItem("cafeteriaId") || "mblock").trim().toLowerCase().replace(/\s+/g, '-');
-            localStorage.setItem("cafeteriaId", cafeteriaId);
-
-            console.log(`🚀 Fetching food for cafeteria: ${cafeteriaId}`);
-            
+            localStorage.setItem("cafeteriaId", cafeteriaId);            
             const response = await axios.get(`${url}/api/food/list?cafeteriaId=${cafeteriaId}`);
             if (response.data.success) {
-                console.log("✅ Food fetched:", response.data.data);
                 setFoodList(response.data.data);
             } else {
                 console.error("⚠️ Error fetching food:", response.data.message);
@@ -235,7 +229,6 @@ const StoreContextProvider = (props) => {
     }, []);
 
     useEffect(() => {
-        console.log("🛠️ Checking cart items...");
         const isCartEmpty = Object.keys(cartItems).length === 0;
 
         if (isCartEmpty) {
