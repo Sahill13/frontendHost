@@ -83,10 +83,14 @@
   .explore-menu-list {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
     gap: 40px;
     padding: 25px 0;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    width: 100%;
   }
   
   .explore-menu-list::-webkit-scrollbar {
