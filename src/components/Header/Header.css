@@ -104,32 +104,43 @@
 
 @media (max-width: 750px) {
     .header {
-        height: 100vw; /* taller header for mobile */
-        margin-top: 60px;
-        margin-bottom: 10px;
-        border-radius: 0; /* full-width clean look */
-        width: 100vw;
+        height: 100vw; /* Slightly taller for better visual impact */
+        margin-top: 65px;
+        margin-bottom: 12px;
+        border-radius: 1px;
+        width: 96vw;
+        background-position: center center;
+        background-size: cover;
     }
-
+  
+    .header-overlay {
+        border-radius: 0;
+    }
+  
     .header-contents {
-        max-width: 90%;
-        left: 5%;
-        bottom: 10%;
-        padding: 10px;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        padding: 12px;
+        max-width: 100%;
+        text-align: center;
     }
-
+  
     .header-contents h2 {
-        font-size: 7vw;
+        font-size: 6.5vw;
+        line-height: 1.3;
     }
-
+  
     .header-contents p {
-        font-size: 1rem;
-        display: none;
+        display: none; /* keep hidden on mobile for cleaner layout */
     }
-
+  
     .header-contents button {
         font-size: 1rem;
-        padding: 12px 24px;
+        padding: 10px 20px;
+        margin-top: 12px;
+        width: 100%;
+        max-width: 300px;
     }
-}
-
+  }
