@@ -107,7 +107,7 @@
         height: 100vw; /* Slightly taller for better visual impact */
         margin-top: 65px;
         margin-bottom: 12px;
-        border-radius: 1px;
+        border-radius: 15px;
         width: 96vw;
         background-position: center center;
         background-size: cover;
