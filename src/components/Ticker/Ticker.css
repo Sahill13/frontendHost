@@ -1,47 +1,64 @@
-/* Ticker.css (Scrolling News Bar) */
+/* Ticker.css (Responsive Scroll Bar below Navbar) */
 .ticker-container {
-    width: 100vw; /* ✅ Ensure full viewport width */
-    background: #D72638; /* Red Theme */
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 10px 0;
-    position: fixed;
-    top: 90px;
-    left: 0;
-    z-index: 990;
+  width: 100%;
+  background: #D72638;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  position: fixed;
+  left: 0;
+  z-index: 990;
+  top: 70px; /* 👈 default (mobile-first) */
 }
 
+/* Scrolling Animation */
 .ticker-wrapper {
-    display: flex;
-    width: max-content;
-    animation: ticker-scroll 15s linear infinite;
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 15s linear infinite;
 }
 
 .ticker-content {
-    display: flex;
-    gap: 50px; /* Space between repeating messages */
+  display: flex;
+  gap: 30px;
 }
 
 @keyframes ticker-scroll {
-    from {
+  from {
       transform: translateX(100%);
-    }
-    to {
+  }
+  to {
       transform: translateX(-100%);
-    }
+  }
 }
-/* ✅ Responsive adjustments for small screens */
-@media (max-width: 480px) {
+
+/* ✅ Larger screen adjustments */
+@media (min-width: 600px) {
   .ticker-container {
-      font-size: 14px;
-      padding: 8px 0;
-      top: 70px; /* Optional: Shift slightly up if needed */
+      top: 75px; /* Adjust based on .navbar padding at this size */
+      font-size: 15px;
   }
 
   .ticker-content {
-      gap: 30px; /* Reduce spacing between items on small screens */
+      gap: 40px;
+  }
+}
+
+@media (min-width: 900px) {
+  .ticker-container {
+      top: 85px;
+  }
+}
+
+@media (min-width: 1050px) {
+  .ticker-container {
+      top: 95px; /* Match height of navbar on desktops */
+  }
+
+  .ticker-content {
+      gap: 50px;
   }
 }

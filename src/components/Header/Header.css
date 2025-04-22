@@ -104,17 +104,32 @@
 
 @media (max-width: 750px) {
     .header {
-        height: 50vw;
+        height: 100vw; /* taller header for mobile */
+        margin-top: 60px;
+        margin-bottom: 10px;
+        border-radius: 0; /* full-width clean look */
+        width: 100vw;
     }
+
     .header-contents {
-        max-width: 80%;
+        max-width: 90%;
+        left: 5%;
+        bottom: 10%;
+        padding: 10px;
     }
+
+    .header-contents h2 {
+        font-size: 7vw;
+    }
+
     .header-contents p {
         font-size: 1rem;
-        display: none; /* Hide quotes for smaller screens */
+        display: none;
     }
+
     .header-contents button {
         font-size: 1rem;
-        padding: 10px 20px;
+        padding: 12px 24px;
     }
 }
+
