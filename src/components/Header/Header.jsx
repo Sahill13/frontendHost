@@ -19,7 +19,6 @@ const Header = () => {
   const baseURL = import.meta.env.VITE_BACKEND_URL ;
 
   const images = [
-    `${baseURL}/images/veghakkanoodle.jpg`,
     `${baseURL}/images/vegfriedrice.jpg`,
     `${baseURL}/images/manchuriandry&gravy.jpg`,
     `${baseURL}/images/chillipaneerdry&gravy.jpg`,
